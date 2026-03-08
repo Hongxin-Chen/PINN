@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Hongxin Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:           #faf9f5;
+  --dark:         #141413;
+  --mid-gray:     #b0aea5;
+  --light-gray:   #e8e6dc;
+  --orange:       #d97757;
+  --blue:         #6a9bcc;
+  --green:        #788c5d;
+  --text:         #1a1915;
+  --text-body:    #3d3b35;
+  --text-muted:   #7a7870;
+  --text-faint:   #b0aea5;
+  --border:       #e2e0d6;
+  --border-dark:  #c8c6bc;
+  --surface:      #f4f3ee;
+  --surface-dark: #eeede7;
+  --font-serif:   'Lora', 'Noto Serif SC', Georgia, serif;
+  --font-sans:    'Noto Sans SC', 'PingFang SC', system-ui, sans-serif;
+  --font-body:    'Source Serif 4', 'Noto Serif SC', Georgia, serif;
+  --nav-h: 64px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h);
+  background: rgba(250,249,245,0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 48px; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-sans); font-size: 15px; font-weight: 500;
+  color: var(--dark); letter-spacing: 0.04em; text-decoration: none; text-transform: uppercase;
+}
+.nav-right { display: flex; align-items: center; gap: 32px; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  font-family: var(--font-sans); font-size: 14px; font-weight: 400;
+  color: var(--text-muted); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--dark); }
+.nav-links a.active { color: var(--dark); }
+.lang-toggle {
+  display: flex; align-items: center; font-family: var(--font-sans); font-size: 13px;
+  border: 1px solid var(--border); border-radius: 100px; overflow: hidden;
+}
+.lang-btn {
+  padding: 5px 12px; cursor: pointer; color: var(--text-muted);
+  background: transparent; border: none; font-family: inherit; font-size: inherit;
+  transition: background 0.2s, color 0.2s; line-height: 1;
+}
+.lang-btn:hover { color: var(--dark); }
+.lang-btn.active { background: var(--dark); color: var(--bg); }
+
+/* PAGE HERO */
+.page-hero {
+  padding-top: calc(var(--nav-h) + 100px);
+  padding-bottom: 80px;
+  padding-left: 48px; padding-right: 48px;
+  max-width: 1200px; margin: 0 auto;
+}
+.page-eyebrow {
+  font-family: var(--font-sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
+}
+.page-title {
+  font-family: var(--font-serif); font-size: clamp(40px, 5vw, 64px); font-weight: 500;
+  line-height: 1.1; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 24px;
+}
+.page-title em { font-style: italic; color: var(--text-muted); }
+.page-desc {
+  font-family: var(--font-body); font-size: 18px; line-height: 1.75;
+  color: var(--text-body); max-width: 640px;
+}
+
+/* CONTENT SECTIONS */
+.content-section {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px 100px;
+}
+
+.research-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+
+.research-card {
+  border: 1px solid var(--border); border-radius: 16px; padding: 40px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.research-card:hover {
+  border-color: var(--border-dark);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+
+.rc-tag {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+}
+.research-card h3 {
+  font-family: var(--font-serif); font-size: 22px; font-weight: 500;
+  line-height: 1.3; color: var(--dark); margin-bottom: 12px; letter-spacing: -0.01em;
+}
+.research-card p {
+  font-family: var(--font-body); font-size: 15px; line-height: 1.75; color: var(--text-muted);
+}
+.rc-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px;
+}
+.rc-chip {
+  font-family: var(--font-sans); font-size: 11px; color: var(--text-faint);
+  border: 1px solid var(--border); padding: 3px 12px; border-radius: 100px;
+}
+
+/* TIMELINE */
+.timeline-section { 
+  max-width: 1200px; margin: 0 auto; padding: 0 48px 100px; 
+}
+.timeline-header {
+  font-family: var(--font-sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange);
+  margin-bottom: 40px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.tl-item {
+  display: grid; grid-template-columns: 160px 1fr; gap: 40px;
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+}
+.tl-year {
+  font-family: var(--font-sans); font-size: 13px; color: var(--text-faint); padding-top: 3px;
+}
+.tl-body h4 {
+  font-family: var(--font-serif); font-size: 18px; font-weight: 500;
+  color: var(--dark); margin-bottom: 6px;
+}
+.tl-body p {
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; color: var(--text-muted);
+}
+
+/* CTA STRIP */
+.cta-strip {
+  border-top: 1px solid var(--border);
+  max-width: 1200px; margin: 0 auto; padding: 60px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cta-strip p {
+  font-family: var(--font-body); font-size: 17px; color: var(--text-body);
+}
+.btn-outline {
+  display: inline-block; font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+  color: var(--dark); padding: 12px 28px; border: 1px solid var(--dark);
+  border-radius: 100px; text-decoration: none; transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover { background: var(--dark); color: var(--bg); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border); padding: 28px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-left {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+  color: var(--dark); letter-spacing: 0.04em; text-transform: uppercase;
+}
+.footer-center { font-family: var(--font-sans); font-size: 13px; color: var(--text-faint); }
+.footer-right { font-family: var(--font-sans); font-size: 13px; color: var(--text-faint); }
+
+/* ANIMATIONS */
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .page-hero { padding: calc(var(--nav-h) + 60px) 24px 60px; }
+  .content-section { padding: 0 24px 60px; }
+  .research-grid { grid-template-columns: 1fr; }
+  .timeline-section { padding: 0 24px 60px; }
+  .tl-item { grid-template-columns: 1fr; gap: 8px; }
+  .cta-strip { padding: 48px 24px; flex-direction: column; gap: 20px; text-align: center; }
+  footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="hongxin.html" class="nav-logo">Hongxin Chen</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="hongxin.html#news" data-i18n="nav-news">News</a></li>
+      <li><a href="research.html" class="active" data-i18n="nav-res">Research</a></li>
+      <li><a href="interest.html" data-i18n="nav-int">Interest</a></li>
+      <li><a href="about.html" data-i18n="nav-abt">About</a></li>
+      <li><a href="hongxin.html#contact" data-i18n="nav-ct">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-eyebrow fade-up visible" data-i18n="re-eye">Research</div>
+  <h1 class="page-title fade-up visible" data-i18n="re-title">在光学、物理与<em>人工智能</em>的交叉处</h1>
+  <p class="page-desc fade-up visible" style="transition-delay:0.1s" data-i18n="re-desc">从浙江大学光学硕士出发，深入非线性光学与激光系统设计，探索 PINN 在光子学中的应用前沿。</p>
+</div>
+
+<!-- RESEARCH DIRECTIONS -->
+<div class="content-section">
+  <div class="research-grid">
+    <div class="research-card fade-up">
+      <div class="rc-tag" data-i18n="rc-tag1">核心方向</div>
+      <h3 data-i18n="rc-h1">PINN 光束仿真</h3>
+      <p data-i18n="rc-p1">将非线性薛定谔方程嵌入神经网络训练目标，用物理信息约束替代纯数据驱动，实现高保真光束传播预测。目标是百倍加速紫外激光腔型优化。</p>
+      <div class="rc-tags">
+        <span class="rc-chip">PINN</span>
+        <span class="rc-chip">PyTorch</span>
+        <span class="rc-chip">NLS</span>
+        <span class="rc-chip" data-i18n="rc-c1">自动微分</span>
+      </div>
+    </div>
+    <div class="research-card fade-up" style="transition-delay:0.08s">
+      <div class="rc-tag" data-i18n="rc-tag2">专业领域</div>
+      <h3 data-i18n="rc-h2">紫外激光系统设计</h3>
+      <p data-i18n="rc-p2">193nm — 355nm 波段的固体激光器与谐波产生系统。包括晶体选型、相位匹配计算、热效应分析和腔型优化。</p>
+      <div class="rc-tags">
+        <span class="rc-chip">SHG / THG</span>
+        <span class="rc-chip">BBO / LBO</span>
+        <span class="rc-chip" data-i18n="rc-c2">相位匹配</span>
+      </div>
+    </div>
+    <div class="research-card fade-up" style="transition-delay:0.16s">
+      <div class="rc-tag" data-i18n="rc-tag3">方法论</div>
+      <h3 data-i18n="rc-h3">非线性光学仿真</h3>
+      <p data-i18n="rc-p3">基于分步傅里叶 (SSFM) 与有限差分方法的光束传播数值模拟，正在用 PINN 方法探索替代方案。</p>
+      <div class="rc-tags">
+        <span class="rc-chip">SSFM</span>
+        <span class="rc-chip">FDM</span>
+        <span class="rc-chip" data-i18n="rc-c3">光束传播</span>
+      </div>
+    </div>
+    <div class="research-card fade-up" style="transition-delay:0.24s">
+      <div class="rc-tag" data-i18n="rc-tag4">探索中</div>
+      <h3 data-i18n="rc-h4">AI 辅助光学工程</h3>
+      <p data-i18n="rc-p4">将大语言模型与自动化工具链集成到光学工程工作流中——从文献检索到参数扫描，从报告生成到代码审查。</p>
+      <div class="rc-tags">
+        <span class="rc-chip">LLM</span>
+        <span class="rc-chip" data-i18n="rc-c4">工作流自动化</span>
+        <span class="rc-chip">Python</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACADEMIC TIMELINE -->
+<div class="timeline-section">
+  <div class="timeline-header" data-i18n="tl-header">学术与项目时间线</div>
+  <div class="tl-item fade-up">
+    <div class="tl-year">2025 — now</div>
+    <div class="tl-body">
+      <h4 data-i18n="tl-h1">PINN 光束仿真引擎开发</h4>
+      <p data-i18n="tl-p1">独立研发基于物理信息神经网络的光束传播仿真框架，PDE loss 已降至 0.003 以下。</p>
+    </div>
+  </div>
+  <div class="tl-item fade-up">
+    <div class="tl-year">2023 — 2025</div>
+    <div class="tl-body">
+      <h4 data-i18n="tl-h2">紫外激光系统工程师</h4>
+      <p data-i18n="tl-p2">负责 193nm — 355nm 紫外固体激光器的腔型设计、谐波产生优化与系统集成。</p>
+    </div>
+  </div>
+  <div class="tl-item fade-up">
+    <div class="tl-year">2020 — 2023</div>
+    <div class="tl-body">
+      <h4 data-i18n="tl-h3">浙江大学 · 光学硕士</h4>
+      <p data-i18n="tl-p3">研究方向：非线性光学与激光物理。系统学习了光束传播理论、晶体光学和数值仿真方法。</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <p data-i18n="cta-text">对研究方向有兴趣？欢迎交流。</p>
+  <a href="hongxin.html#contact" class="btn-outline" data-i18n="cta-btn">联系我 →</a>
+</div>
+
+<footer>
+  <div class="footer-left">Hongxin Chen</div>
+  <div class="footer-center" data-i18n="ft-center">激光与光学工程师 · 上海</div>
+  <div class="footer-right">© 2026</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => {
+    if (!el.classList.contains('visible')) io.observe(el);
+  });
+
+  const zhMap = {};
+  const enMap = {
+    'nav-news': 'News', 'nav-res': 'Research', 'nav-int': 'Interest', 'nav-abt': 'About', 'nav-ct': 'Contact',
+    're-eye': 'Research',
+    're-title': 'At the Intersection of Optics, Physics & <em>AI</em>',
+    're-desc': 'Starting from an M.S. in Optics at Zhejiang University, exploring nonlinear optics, laser system design, and PINN applications in photonics.',
+    'rc-tag1': 'Core Direction', 'rc-h1': 'PINN Beam Simulation',
+    'rc-p1': 'Embedding the nonlinear Schrödinger equation into neural network training objectives, replacing pure data-driven approaches with physics-informed constraints for high-fidelity beam propagation prediction. Targeting 100× speedup for UV laser cavity optimization.',
+    'rc-c1': 'Autodiff',
+    'rc-tag2': 'Expertise', 'rc-h2': 'UV Laser System Design',
+    'rc-p2': 'Solid-state lasers and harmonic generation systems in the 193nm–355nm range. Including crystal selection, phase matching calculations, thermal analysis, and cavity optimization.',
+    'rc-c2': 'Phase Matching',
+    'rc-tag3': 'Methodology', 'rc-h3': 'Nonlinear Optical Simulation',
+    'rc-p3': 'Beam propagation numerical simulation based on split-step Fourier (SSFM) and finite difference methods, currently exploring PINN as an alternative approach.',
+    'rc-c3': 'Beam Propagation',
+    'rc-tag4': 'Exploring', 'rc-h4': 'AI-Assisted Optical Engineering',
+    'rc-p4': 'Integrating LLMs and automation toolchains into optical engineering workflows — from literature search to parameter sweeps, report generation to code review.',
+    'rc-c4': 'Workflow Automation',
+    'tl-header': 'Academic & Project Timeline',
+    'tl-h1': 'PINN Beam Simulation Engine Development',
+    'tl-p1': 'Independently developing a physics-informed neural network framework for beam propagation simulation. PDE loss dropped below 0.003.',
+    'tl-h2': 'UV Laser Systems Engineer',
+    'tl-p2': 'Responsible for cavity design, harmonic generation optimization, and system integration for 193nm–355nm UV solid-state lasers.',
+    'tl-h3': 'Zhejiang University · M.S. Optics',
+    'tl-p3': 'Research focus: nonlinear optics and laser physics. Systematic study of beam propagation theory, crystal optics, and numerical simulation methods.',
+    'cta-text': 'Interested in these research directions? Let\'s connect.',
+    'cta-btn': 'Contact Me →',
+    'ft-center': 'Laser & Optical Engineer · Shanghai'
+  };
+
+  let curLang = 'zh';
+  document.querySelectorAll('[data-i18n]').forEach(el => { zhMap[el.getAttribute('data-i18n')] = el.innerHTML; });
+
+  function switchLang(lang) {
+    if (lang === curLang) return;
+    curLang = lang;
+    const d = lang === 'en' ? enMap : zhMap;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (d[k] !== undefined) el.innerHTML = d[k];
+    });
+    document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+  }
+</script>
+</body>
+</html>
