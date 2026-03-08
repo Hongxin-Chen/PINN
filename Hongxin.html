@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optical & AI | Personal Space</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAF9F6; /* 经典的克劳德式柔和米白背景 */
+            --text-main: #2D2D2D;
+            --text-muted: #666666;
+            --border-color: #E5E3DB;
+            --accent-color: #8C8273;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            padding: 4rem 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #33322E;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #F0EEE9;
+            color: var(--text-muted);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        .quote {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin: 2rem 0;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Optical & AI</h1>
+        <div class="subtitle">激光工程师 / 光学工程硕士 (ZJU) / 驻扎上海</div>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="section-title">关于我 (About)</h2>
+            <p>致力于在激光物理与人工智能的交叉领域探索。日常工作围绕激光系统设计、光纤耦合以及将前沿的物理信息神经网络（PINNs）引入光学仿真之中。</p>
+            <p>推崇第一性原理思考与 Le Labo 式的工业极简美学——在物理世界中寻找绝对的秩序，在代码与文字中构建高质量的纹理。</p>
+        </section>
+
+        <section>
+            <h2 class="section-title">工程与构建 (Engineering & Building)</h2>
+            <ul>
+                <li><strong>非线性晶体仿真平台：</strong> 基于 Streamlit 构建并部署的可视化仿真工具，实现光学推演的自动化。</li>
+                <li><strong>物理知识库 (Inheritance System)：</strong> 使用 Notion 与 LaTeX 记录耦合波方程等核心推导，搭建个人数字大脑。</li>
+                <li><strong>本地 AI Agent 部署：</strong> 利用高算力硬件驱动本地大模型，探索工作流自动化的边界。</li>
+            </ul>
+            <div class="tech-tags">
+                <span class="tag">VS Code</span>
+                <span class="tag">Cursor</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">LaTeX</span>
+                <span class="tag">PINNs</span>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">哲学与生活 (Philosophy & Life)</h2>
+            <p>工作之外，生活同样需要高标准的秩序感与纯粹的感官体验：</p>
+            <ul>
+                <li><strong>阅读与思考：</strong> 常从加缪的《西西弗神话》与维特根斯坦的逻辑学中寻找存在主义的锚点。</li>
+                <li><strong>秩序与克制：</strong> 保持 16+8 轻断食与规律的力量训练（卧推、倒蹬），这是对身体机能的第一性原理实践。</li>
+                <li><strong>感官体验：</strong> 偏爱单一麦芽威士忌（Balvenie, Macallan）与干白葡萄酒的复杂风味。</li>
+                <li><strong>陪伴：</strong> 与一只名为“拾一”的十二色金渐层英短共享上海的居住空间。</li>
+            </ul>
+            
+            <div class="quote">
+                "真正的救赎，并不是回避痛苦，而是承认并直面它。" —— 阿尔贝·加缪
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026. 保持理智，持续构建。</p>
+    </footer>
+</div>
+
+</body>
+</html>
