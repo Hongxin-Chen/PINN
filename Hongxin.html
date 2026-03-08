@@ -1,19 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>陈泓鑫 — 激光与光学工程师</title>
+<title>Hongxin Chen — Laser & Optical Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================
-   ANTHROPIC DESIGN SYSTEM — EXACT BRAND TOKENS
+   DESIGN TOKENS
    ============================================ */
 :root {
-  /* Official Anthropic palette */
   --bg:           #faf9f5;
   --dark:         #141413;
   --mid-gray:     #b0aea5;
@@ -22,7 +20,6 @@
   --blue:         #6a9bcc;
   --green:        #788c5d;
 
-  /* Extended from site observation */
   --text:         #1a1915;
   --text-body:    #3d3b35;
   --text-muted:   #7a7870;
@@ -32,17 +29,14 @@
   --surface:      #f4f3ee;
   --surface-dark: #eeede7;
 
-  /* Typography */
   --font-serif:   'Lora', 'Noto Serif SC', Georgia, serif;
   --font-sans:    'Noto Sans SC', 'PingFang SC', system-ui, sans-serif;
   --font-body:    'Source Serif 4', 'Noto Serif SC', Georgia, serif;
 
-  /* Spacing rhythm */
   --nav-h: 64px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
@@ -55,7 +49,7 @@ body {
 }
 
 /* ============================================
-   NAVIGATION — exact Anthropic nav
+   NAV — Anthropic style
    ============================================ */
 nav {
   position: fixed;
@@ -73,21 +67,24 @@ nav {
 }
 
 .nav-logo {
-  font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
   color: var(--dark);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
-.nav-logo span {
-  color: var(--orange);
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .nav-links {
   display: flex;
-  gap: 36px;
+  gap: 28px;
   list-style: none;
 }
 
@@ -103,36 +100,18 @@ nav {
 
 .nav-links a:hover { color: var(--dark); }
 
-.nav-cta {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--bg);
-  background: var(--dark);
-  padding: 9px 20px;
-  border-radius: 100px;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  transition: background 0.2s;
-}
-
-.nav-cta:hover { background: var(--text-body); }
-
-/* Language toggle */
 .lang-toggle {
   display: flex;
   align-items: center;
-  gap: 0;
   font-family: var(--font-sans);
   font-size: 13px;
   border: 1px solid var(--border);
   border-radius: 100px;
   overflow: hidden;
-  margin-left: 12px;
 }
 
 .lang-btn {
-  padding: 6px 14px;
+  padding: 5px 12px;
   cursor: pointer;
   color: var(--text-muted);
   background: transparent;
@@ -151,13 +130,61 @@ nav {
 }
 
 /* ============================================
-   MOTTO BANNER — Anthropic statement strip
+   HOMEPAGE HERO — big statement
+   ============================================ */
+.home-hero {
+  padding-top: calc(var(--nav-h) + 100px);
+  padding-bottom: 80px;
+  padding-left: 48px;
+  padding-right: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.home-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 5.5vw, 72px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--dark);
+}
+
+.home-headline .ul {
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.home-headline em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.home-aside {
+  padding-top: 20px;
+}
+
+.home-aside p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+
+/* ============================================
+   MOTTO STRIP
    ============================================ */
 .motto-wrap {
   background: var(--dark);
-  padding: 48px 48px;
-  overflow: hidden;
+  padding: 52px 48px;
   position: relative;
+  overflow: hidden;
 }
 
 .motto-wrap::before {
@@ -195,7 +222,6 @@ nav {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0;
 }
 
 .motto-word {
@@ -221,383 +247,97 @@ nav {
 }
 
 /* ============================================
-   HERO — Anthropic large headline style
+   FEATURED CARD — dark hero block
    ============================================ */
-.hero {
-  padding-top: calc(var(--nav-h) + 100px);
-  padding-bottom: 120px;
-  padding-left: 48px;
-  padding-right: 48px;
+.featured-wrap {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 80px;
-  align-items: center;
+  padding: 80px 48px 100px;
 }
 
-.hero-left {}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-  margin-bottom: 28px;
-}
-
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--orange);
-}
-
-.hero-h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(44px, 5.5vw, 68px);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--dark);
-  margin-bottom: 28px;
-}
-
-.hero-h1 em {
-  font-style: italic;
-  color: var(--orange);
-}
-
-.hero-body {
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--text-body);
-  max-width: 520px;
-  margin-bottom: 44px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.btn-primary {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--bg);
+.featured-card {
   background: var(--dark);
-  padding: 13px 28px;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: background 0.2s;
-  letter-spacing: 0.01em;
-}
-
-.btn-primary:hover { background: #2a2920; }
-
-.btn-ghost {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  color: var(--text-body);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s;
-}
-
-.btn-ghost:hover { color: var(--dark); }
-.btn-ghost::after { content: '→'; font-size: 16px; }
-
-/* Hero right — card */
-.hero-card {
-  background: var(--surface-dark);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 36px;
+  border-radius: 24px;
+  padding: 64px;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
-.hero-card::before {
+.featured-card::before {
   content: '';
   position: absolute;
-  top: -60px; right: -60px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(217,119,87,0.12) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(217,119,87,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
-.card-label {
+.feat-eyebrow {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--orange);
   margin-bottom: 20px;
 }
 
-.card-stat-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-
-.card-stat {}
-
-.card-stat-num {
+.featured-card h2 {
   font-family: var(--font-serif);
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--dark);
-  line-height: 1;
-  margin-bottom: 4px;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #f0ede5;
+  margin-bottom: 20px;
 }
 
-.card-stat-num span {
+.featured-card h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(240, 237, 229, 0.5);
+}
+
+.featured-card p {
+  font-family: var(--font-body);
   font-size: 16px;
-  color: var(--orange);
+  line-height: 1.8;
+  color: #7a7870;
+  max-width: 440px;
 }
 
-.card-stat-label {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.card-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 20px 0;
-}
-
-.card-tag-row {
+.tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 28px;
 }
 
 .tag {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: var(--text-muted);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 4px 12px;
+  color: #7a7870;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  padding: 4px 14px;
   border-radius: 100px;
 }
 
 .tag.accent {
-  background: rgba(217,119,87,0.08);
-  border-color: rgba(217,119,87,0.25);
-  color: #b85c36;
-}
-
-/* ============================================
-   DIVIDER — Anthropic full-width ruled line
-   ============================================ */
-.ruled {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 0;
-}
-
-/* ============================================
-   SECTION WRAPPER
-   ============================================ */
-.section-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 100px 48px;
-}
-
-.section-wrap.tight { padding: 80px 48px; }
-
-/* Section heading — Anthropic style */
-.section-label {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  border-color: rgba(217,119,87,0.35);
   color: var(--orange);
-  margin-bottom: 16px;
 }
 
-.section-h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--dark);
-  margin-bottom: 20px;
-}
-
-.section-h2 em {
-  font-style: italic;
-  color: var(--text-muted);
-}
-
-.section-intro {
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--text-body);
-  max-width: 600px;
-}
-
-/* ============================================
-   RESEARCH / WORK GRID — Anthropic card grid
-   ============================================ */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 60px;
-}
-
-.work-card {
-  background: var(--bg);
-  padding: 36px 32px;
-  transition: background 0.2s;
-  position: relative;
-}
-
-.work-card:hover { background: var(--surface); }
-
-.work-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--surface-dark);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.work-card-label {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 10px;
-}
-
-.work-card h3 {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--dark);
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-
-.work-card p {
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text-muted);
-}
-
-.work-card-footer {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--text-faint);
-}
-
-/* ============================================
-   FEATURED PROJECT — large editorial block
-   ============================================ */
-.featured-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-top: 80px;
-}
-
-.featured-text {}
-
-.featured-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--green);
-  background: rgba(120, 140, 93, 0.1);
-  border: 1px solid rgba(120, 140, 93, 0.25);
-  padding: 4px 12px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-
-.featured-badge::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse-green 2s ease-in-out infinite;
-}
-
-@keyframes pulse-green {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.featured-h3 {
-  font-family: var(--font-serif);
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--dark);
-  margin-bottom: 20px;
-}
-
-.featured-body {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-body);
-  margin-bottom: 32px;
-}
-
-.featured-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* Code / equation block */
 .eq-block {
-  background: var(--dark);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
-  padding: 40px;
-  font-family: 'SF Mono', 'Fira Code', monospace;
+  padding: 36px;
+  font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
   font-size: 13px;
   line-height: 1.9;
   position: relative;
@@ -608,7 +348,7 @@ nav {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, var(--orange), var(--blue));
 }
 
@@ -621,48 +361,21 @@ nav {
 .eq-num { color: #b0aea5; }
 
 /* ============================================
-   PHILOSOPHY — large pull quote style
+   PHILOSOPHY STRIP — three pillars
    ============================================ */
-.philosophy-wrap {
-  background: var(--dark);
-  color: var(--bg);
+.phil-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.philosophy-inner {
+.phil-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 48px;
-}
-
-.philosophy-quote {
-  font-family: var(--font-serif);
-  font-size: clamp(36px, 4.5vw, 56px);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--bg);
-  max-width: 860px;
-  margin-bottom: 60px;
-  opacity: 0.95;
-}
-
-.philosophy-quote strong {
-  font-style: normal;
-  font-weight: 600;
-  color: #f0ede5;
-}
-
-.phil-grid {
+  padding: 80px 48px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
-  margin-top: 60px;
-  padding-top: 60px;
-  border-top: 1px solid rgba(255,255,255,0.1);
 }
-
-.phil-item {}
 
 .phil-num {
   font-family: var(--font-sans);
@@ -671,14 +384,14 @@ nav {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .phil-item h4 {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
-  color: #e8e4dc;
+  color: var(--dark);
   line-height: 1.3;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
@@ -686,135 +399,75 @@ nav {
 
 .phil-item p {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.75;
-  color: #7a7870;
+  color: var(--text-muted);
 }
 
 /* ============================================
-   LIFESTYLE — Anthropic "about the team" style
+   PAGE SECTIONS — skeleton for subpages
    ============================================ */
-.lifestyle-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 60px;
+.page-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 48px;
 }
 
-.life-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px 24px;
-  transition: border-color 0.2s, background 0.2s;
-}
+.page-header { margin-bottom: 60px; }
 
-.life-card:hover {
-  border-color: var(--border-dark);
-  background: var(--surface-dark);
-}
-
-.life-emoji {
-  font-size: 24px;
-  margin-bottom: 14px;
-  display: block;
-}
-
-.life-title {
-  font-family: var(--font-serif);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--dark);
-  margin-bottom: 6px;
-  letter-spacing: -0.01em;
-}
-
-.life-sub {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ============================================
-   GOALS SECTION — numbered list Anthropic style
-   ============================================ */
-.goals-list {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.goal-item {
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
-  gap: 32px;
-  align-items: center;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
-}
-
-.goal-item:first-child { border-top: 1px solid var(--border); }
-
-.goal-num {
-  font-family: var(--font-serif);
-  font-size: 13px;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--text-faint);
-}
-
-.goal-text h4 {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--dark);
-  letter-spacing: -0.01em;
-  margin-bottom: 6px;
-}
-
-.goal-text p {
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.goal-status {
+.page-eyebrow {
   font-family: var(--font-sans);
   font-size: 12px;
-  padding: 5px 14px;
-  border-radius: 100px;
-  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
 }
 
-.status-active {
-  background: rgba(120,140,93,0.12);
-  color: #4e6b3a;
-  border: 1px solid rgba(120,140,93,0.25);
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin-bottom: 20px;
 }
 
-.status-planned {
-  background: rgba(106,155,204,0.1);
-  color: #3a6080;
-  border: 1px solid rgba(106,155,204,0.25);
-}
-
-.status-pending {
-  background: var(--surface-dark);
+.page-title em {
+  font-style: italic;
   color: var(--text-muted);
-  border: 1px solid var(--border);
+}
+
+.page-desc {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-body);
+  max-width: 600px;
+}
+
+.page-placeholder {
+  border: 1px dashed var(--border-dark);
+  border-radius: 16px;
+  padding: 60px 48px;
+  text-align: center;
+  color: var(--text-faint);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.ruled {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
 }
 
 /* ============================================
-   CONTACT — Anthropic footer CTA style
+   CONTACT — dark section
    ============================================ */
-.contact-wrap {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-}
+.contact-wrap { background: var(--dark); }
 
 .contact-inner {
   max-width: 1200px;
@@ -826,53 +479,67 @@ nav {
   align-items: start;
 }
 
-.contact-left h2 {
+.contact-inner h2 {
   font-family: var(--font-serif);
   font-size: clamp(36px, 4vw, 52px);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--dark);
+  color: #f0ede5;
   margin-bottom: 20px;
 }
 
-.contact-left h2 em {
+.contact-inner h2 em {
   font-style: italic;
-  color: var(--text-muted);
+  color: rgba(240, 237, 229, 0.5);
 }
 
-.contact-left p {
+.contact-inner .desc {
   font-size: 16px;
-  color: var(--text-body);
+  color: #7a7870;
   line-height: 1.75;
   margin-bottom: 36px;
   max-width: 400px;
 }
 
-.contact-right {}
+.btn-primary {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  background: var(--bg);
+  padding: 13px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover { background: #e8e6dc; }
 
 .info-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   gap: 20px;
 }
 
-.info-row:first-child { border-top: 1px solid var(--border); }
+.info-row:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
 
 .info-label {
   font-family: var(--font-sans);
   font-size: 13px;
-  color: var(--text-faint);
-  min-width: 100px;
+  color: #5a5a4a;
+  min-width: 80px;
 }
 
 .info-val {
   font-family: var(--font-body);
   font-size: 15px;
-  color: var(--text-body);
+  color: #b0aea5;
   text-align: right;
 }
 
@@ -885,17 +552,16 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
 }
 
 .footer-left {
-  font-family: var(--font-serif);
-  font-size: 14px;
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 500;
   color: var(--dark);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
-
-.footer-left span { color: var(--orange); }
 
 .footer-center {
   font-family: var(--font-sans);
@@ -910,7 +576,7 @@ footer {
 }
 
 /* ============================================
-   SCROLL ANIMATIONS
+   ANIMATIONS
    ============================================ */
 .fade-up {
   opacity: 0;
@@ -923,38 +589,64 @@ footer {
   transform: none;
 }
 
-.fade-up:nth-child(2) { transition-delay: 0.08s; }
-.fade-up:nth-child(3) { transition-delay: 0.16s; }
-.fade-up:nth-child(4) { transition-delay: 0.24s; }
-.fade-up:nth-child(5) { transition-delay: 0.32s; }
-.fade-up:nth-child(6) { transition-delay: 0.40s; }
-
 /* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; padding: 0 24px; gap: 48px; }
-  .hero-card { display: none; }
-  .section-wrap { padding: 72px 24px; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .featured-block { grid-template-columns: 1fr; gap: 40px; }
-  .phil-grid { grid-template-columns: 1fr; gap: 36px; }
-  .lifestyle-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .home-hero {
+    grid-template-columns: 1fr;
+    padding: 0 24px; gap: 28px;
+    padding-top: calc(var(--nav-h) + 60px);
+    padding-bottom: 60px;
+  }
+  .motto-wrap { padding: 40px 24px; }
+  .motto-text { font-size: clamp(22px, 5vw, 36px); }
+  .motto-dot { width: 5px; height: 5px; margin: 0 16px; }
+  .featured-wrap { padding: 0 24px 60px; }
+  .featured-card { grid-template-columns: 1fr; padding: 32px; gap: 32px; }
+  .phil-inner { grid-template-columns: 1fr; gap: 36px; padding: 60px 24px; }
+  .page-section { padding: 72px 24px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
   footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
-  .goal-item { grid-template-columns: 40px 1fr; }
-  .goal-status { display: none; }
-  .philosophy-inner { padding: 72px 24px; }
-  .motto-wrap { padding: 56px 24px; }
-  .motto-text { font-size: clamp(24px, 5vw, 36px); }
-  .motto-word { gap: 12px; }
-  .motto-dot { width: 5px; height: 5px; }
 }
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 </style>
 </head>
 <body>
+
+<!-- ==================== NAV ==================== -->
+<nav>
+  <a href="#" class="nav-logo">Hongxin Chen</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#research" data-i18n="nav-res">Research</a></li>
+      <li><a href="#interest" data-i18n="nav-int">Interest</a></li>
+      <li><a href="#about" data-i18n="nav-abt">About</a></li>
+      <li><a href="#contact" data-i18n="nav-ct">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO — big statement ==================== -->
+<section class="home-hero">
+  <div>
+    <h1 class="home-headline fade-up visible" data-i18n="home-h1">
+      用<span class="ul">物理</span>驱动光的设计，用<span class="ul">极简</span>定义工程<em>美学</em>
+    </h1>
+  </div>
+  <div class="home-aside fade-up visible" style="transition-delay:0.12s">
+    <p data-i18n="home-p">
+      陈泓鑫，激光与光学工程师，现居上海。专注紫外激光系统与非线性光学研究，正在用物理信息神经网络重新定义光束仿真的方式。相信理解第一性原理永远优先于掌握工具本身。
+    </p>
+  </div>
+</section>
 
 <!-- ==================== MOTTO ==================== -->
 <div class="motto-wrap">
@@ -969,303 +661,131 @@ footer {
   </div>
 </div>
 
-<!-- ==================== NAV ==================== -->
-<nav>
-  <a href="#" class="nav-logo">泓<span>鑫</span></a>
-  <ul class="nav-links">
-    <li><a href="#work" data-i18n="nav-work">研究方向</a></li>
-    <li><a href="#projects" data-i18n="nav-projects">当前项目</a></li>
-    <li><a href="#about" data-i18n="nav-about">关于我</a></li>
-    <li><a href="#contact" data-i18n="nav-contact">联系</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中</button>
-      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
-    </div>
-    <a href="#contact" class="nav-cta" data-i18n="nav-cta">开始对话</a>
-  </div>
-</nav>
-
-<!-- ==================== HERO ==================== -->
-<section style="padding-top: var(--nav-h);">
-  <div class="hero">
-    <div class="hero-left fade-up visible">
-      <div class="hero-eyebrow" data-i18n="hero-eyebrow">激光与光学工程师 · 上海</div>
-      <h1 class="hero-h1" data-i18n="hero-h1">
-        用物理规律<br>
-        驱动<em>光的设计</em>
-      </h1>
-      <p class="hero-body" data-i18n="hero-body">
-        专注于紫外激光系统设计（355 nm · 266 nm · 193 nm）与非线性光学研究。
-        正在构建物理信息神经网络（PINN），以机器学习替代传统数值方法，
-        实现高斯光束与非线性晶体交互的连续可微仿真。
+<!-- ==================== FEATURED ==================== -->
+<div class="featured-wrap">
+  <div class="featured-card fade-up">
+    <div>
+      <div class="feat-eyebrow" data-i18n="feat-eye">CURRENT FOCUS</div>
+      <h2 data-i18n="feat-h2">PINN 光束<em>仿真引擎</em></h2>
+      <p data-i18n="feat-p">
+        将物理方程直接嵌入神经网络的训练目标——让网络不只是拟合数据，而是「理解」光的传播规律。目标：替代传统数值方法，为紫外激光腔型优化提供百倍速度提升。
       </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-primary" data-i18n="hero-btn1">查看当前研究</a>
-        <a href="#about" class="btn-ghost" data-i18n="hero-btn2">了解更多</a>
-      </div>
-    </div>
-
-    <div class="hero-card fade-up visible" style="transition-delay:0.2s">
-      <div class="card-label" data-i18n="card-label1">研究概况</div>
-      <div class="card-stat-row">
-        <div class="card-stat">
-          <div class="card-stat-num">3<span data-i18n="card-stat-unit">个</span></div>
-          <div class="card-stat-label" data-i18n="card-stat-l1">主要波段<br>355 · 266 · 193 nm</div>
-        </div>
-        <div class="card-stat">
-          <div class="card-stat-num">∂²<span>u</span></div>
-          <div class="card-stat-label" data-i18n="card-stat-l2">PINN 求解<br>非线性薛定谔方程</div>
-        </div>
-      </div>
-      <div class="card-divider"></div>
-      <div class="card-label" style="margin-bottom:12px" data-i18n="card-label2">技术领域</div>
-      <div class="card-tag-row">
-        <span class="tag accent" data-i18n="tag-nlo">非线性光学</span>
+      <div class="tag-row">
         <span class="tag accent">PINN</span>
-        <span class="tag" data-i18n="tag-duv">DUV 激光</span>
-        <span class="tag" data-i18n="tag-pm">晶体相匹配</span>
-        <span class="tag" data-i18n="tag-bp">光束传播</span>
-        <span class="tag">PyTorch</span>
+        <span class="tag accent">PyTorch</span>
+        <span class="tag" data-i18n="feat-t1">非线性光学</span>
+        <span class="tag" data-i18n="feat-t2">自动微分</span>
+        <span class="tag">NLS</span>
       </div>
     </div>
-  </div>
-</section>
-
-<hr class="ruled">
-
-<!-- ==================== WORK / STACK ==================== -->
-<section id="work">
-  <div class="section-wrap">
-    <div class="fade-up">
-      <div class="section-label" data-i18n="work-label">研究方向</div>
-      <h2 class="section-h2" data-i18n="work-h2">在光学、物理与<em>人工智能</em>的交叉处工作</h2>
-      <p class="section-intro" data-i18n="work-intro">
-        从浙江大学光学硕士背景出发，在导师（来自耶拿大学）的指导下
-        深入非线性物理与激光系统设计，并持续将 AI 工具融入工程实践。
-      </p>
-    </div>
-
-    <div class="cards-grid">
-      <div class="work-card fade-up">
-        <div class="work-card-icon">🔬</div>
-        <div class="work-card-label" data-i18n="wc1-label">核心领域</div>
-        <h3 data-i18n="wc1-h3">非线性光学</h3>
-        <p data-i18n="wc1-p">二次谐波产生（SHG）、三次谐波产生（THG）、晶体相位匹配、腔型设计与热透镜效应分析。</p>
-        <div class="work-card-footer">λ = 266 nm — 1064 nm</div>
-      </div>
-
-      <div class="work-card fade-up">
-        <div class="work-card-icon">🧠</div>
-        <div class="work-card-label" data-i18n="wc2-label">前沿研究</div>
-        <h3 data-i18n="wc2-h3">物理信息神经网络</h3>
-        <p data-i18n="wc2-p">将麦克斯韦方程组与 NLS 方程编码进损失函数，构建可替代 FDTD / 分步傅里叶的连续近似器。</p>
-        <div class="work-card-footer">PyTorch · 进行中 ↗</div>
-      </div>
-
-      <div class="work-card fade-up">
-        <div class="work-card-icon">⚙️</div>
-        <div class="work-card-label" data-i18n="wc3-label">工程工具</div>
-        <h3 data-i18n="wc3-h3">AI 增强工作流</h3>
-        <p data-i18n="wc3-p">将 VS Code、Cursor、大语言模型整合进日常工程流程。已部署 Streamlit 非线性晶体仿真平台供公司内部使用。</p>
-        <div class="work-card-footer">Claude · Cursor · Streamlit</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="ruled">
-
-<!-- ==================== FEATURED PROJECT ==================== -->
-<section id="projects">
-  <div class="section-wrap">
-    <div class="section-label fade-up" data-i18n="proj-label">当前项目</div>
-    <h2 class="section-h2 fade-up" data-i18n="proj-h2">PINN 光束仿真引擎</h2>
-
-    <div class="featured-block">
-      <div class="featured-text fade-up">
-        <div class="featured-badge" data-i18n="feat-badge">进行中</div>
-        <h3 class="featured-h3" data-i18n="feat-h3">高斯光束与非线性<br>交互的神经网络求解</h3>
-        <p class="featured-body" data-i18n="feat-body">
-          传统数值方法（BPM、FDTD）在参数扫描时计算代价极高。
-          这个项目将物理方程直接嵌入网络的训练目标中——
-          让神经网络不只是拟合数据，而是「理解」光的传播规律。
-          最终目标：为紫外激光腔型优化提供百倍速度提升的连续仿真工具。
-        </p>
-        <div class="featured-tags">
-          <span class="tag accent" data-i18n="ft-t1">物理约束损失</span>
-          <span class="tag accent" data-i18n="ft-t2">高斯光束</span>
-          <span class="tag" data-i18n="ft-t3">NLS 方程</span>
-          <span class="tag" data-i18n="ft-t4">相位匹配优化</span>
-          <span class="tag" data-i18n="ft-t5">自动微分</span>
-        </div>
-      </div>
-
-      <div class="eq-block fade-up">
-        <div class="eq-comment" data-i18n="eq-c1"># PINN 训练核心逻辑</div>
-        <div style="height:12px"></div>
-        <div><span class="eq-key">def</span> <span class="eq-val">physics_loss</span><span class="eq-num">(u, x, z):</span></div>
-        <div><span class="eq-dim">&nbsp;&nbsp;</span><span class="eq-comment" data-i18n="eq-c2"># 非线性薛定谔方程残差</span></div>
-        <div><span class="eq-dim">&nbsp;&nbsp;</span><span class="eq-sym">∂u/∂z</span> <span class="eq-num">= u_z(u, x, z)</span></div>
-        <div><span class="eq-dim">&nbsp;&nbsp;</span><span class="eq-sym">∇²u</span> <span class="eq-num">= laplacian(u, x)</span></div>
-        <div><span class="eq-dim">&nbsp;&nbsp;</span><span class="eq-key">residual</span> <span class="eq-num">= i·∂u/∂z</span></div>
-        <div><span class="eq-dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="eq-num">+ (1/2k)·∇²u</span></div>
-        <div><span class="eq-dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="eq-num">+ γ·|u|²·u</span></div>
-        <div style="height:12px"></div>
-        <div><span class="eq-key">loss_pde</span>  <span class="eq-sym">=</span> <span class="eq-str">0.0034</span>  <span class="eq-comment" data-i18n="eq-c3">↓ 收敛中</span></div>
-        <div><span class="eq-key">loss_bc</span>   <span class="eq-sym">=</span> <span class="eq-str">0.0012</span>  <span class="eq-comment" data-i18n="eq-c4">↓ 稳定</span></div>
-        <div><span class="eq-key">loss_data</span> <span class="eq-sym">=</span> <span class="eq-str">0.0008</span>  <span class="eq-comment" data-i18n="eq-c5">✓ 已拟合</span></div>
-        <div style="height:12px"></div>
-        <div><span class="eq-comment"># Epoch 4980 / 5000</span></div>
-        <div><span class="eq-val">Total Loss: 0.00054</span> <span style="display:inline-block;width:8px;height:14px;background:#d97757;animation:blink 1s step-end infinite;vertical-align:middle;"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== PHILOSOPHY — DARK ==================== -->
-<div class="philosophy-wrap">
-  <div class="philosophy-inner">
-    <blockquote class="philosophy-quote fade-up" data-i18n="phil-quote">
-      「理解<strong>第一性原理</strong>，
-      永远优先于掌握工具本身。
-      物理给出约束，数学给出语言，
-      代码只是执行。」
-    </blockquote>
-
-    <div class="phil-grid">
-      <div class="phil-item fade-up">
-        <div class="phil-num" data-i18n="phil-n1">01 — 物理</div>
-        <h4 data-i18n="phil-h1">先找到数学根源</h4>
-        <p data-i18n="phil-p1">每一个激光系统、每一次非线性交互都有清洁的数学根源。先找到它，再仿真，最后才是工程化。没有理解的优化只是噪声。</p>
-      </div>
-      <div class="phil-item fade-up">
-        <div class="phil-num" data-i18n="phil-n2">02 — AI</div>
-        <h4 data-i18n="phil-h2">放大认知差距</h4>
-        <p data-i18n="phil-p2">AI 不替代思考——它放大认知质量的差距。理解物理的工程师能从神经网络中提取的价值，是不懂物理的人的十倍。</p>
-      </div>
-      <div class="phil-item fade-up">
-        <div class="phil-num" data-i18n="phil-n3">03 — 极简</div>
-        <h4 data-i18n="phil-h3">减法即精确</h4>
-        <p data-i18n="phil-p3">无杂物的工作台、无噪声的文档、无冗余的代码——都反映同一种纪律：去掉所有不携带信号的东西。LaTeX、黑咖啡、皆是如此。</p>
-      </div>
+    <div class="eq-block">
+      <div class="eq-comment"># physics_loss(u, x, z)</div>
+      <div style="height:8px"></div>
+      <div><span class="eq-sym">∂u/∂z</span> <span class="eq-num">= u_z(u, x, z)</span></div>
+      <div><span class="eq-sym">∇²u</span>&nbsp;&nbsp; <span class="eq-num">= laplacian(u, x)</span></div>
+      <div style="height:4px"></div>
+      <div><span class="eq-key">residual</span> <span class="eq-num">= i·∂u/∂z</span></div>
+      <div><span class="eq-dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="eq-num">+ (1/2k)·∇²u</span></div>
+      <div><span class="eq-dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="eq-num">+ γ·|u|²·u</span></div>
+      <div style="height:12px"></div>
+      <div><span class="eq-key">loss_pde</span>&nbsp; <span class="eq-sym">=</span> <span class="eq-str">0.0034</span></div>
+      <div><span class="eq-key">loss_bc</span>&nbsp;&nbsp; <span class="eq-sym">=</span> <span class="eq-str">0.0012</span></div>
+      <div><span class="eq-key">loss_data</span> <span class="eq-sym">=</span> <span class="eq-str">0.0008</span></div>
+      <div style="height:8px"></div>
+      <div><span class="eq-val">Total Loss: 0.0054</span> <span style="display:inline-block;width:8px;height:14px;background:#d97757;animation:blink 1s step-end infinite;vertical-align:middle;"></span></div>
     </div>
   </div>
 </div>
 
-<!-- ==================== ABOUT / LIFESTYLE ==================== -->
-<section id="about">
-  <div class="section-wrap">
-    <div class="fade-up">
-      <div class="section-label" data-i18n="about-label">关于我</div>
-      <h2 class="section-h2" data-i18n="about-h2">工程师的<em>操作系统</em></h2>
-      <p class="section-intro" data-i18n="about-intro">
-        26 岁，重庆人，现居上海。光学与工程之外的生活同样遵循极简原则——
-        去掉多余的，留下真正有价值的。
-      </p>
+<!-- ==================== PHILOSOPHY ==================== -->
+<div class="phil-strip">
+  <div class="phil-inner">
+    <div class="phil-item fade-up">
+      <div class="phil-num" data-i18n="ph-n1">01 — 物理</div>
+      <h4 data-i18n="ph-h1">先找到数学根源</h4>
+      <p data-i18n="ph-p1">每一个激光系统、每一次非线性交互都有清洁的数学根源。先找到它，再仿真，最后才是工程化。没有理解的优化只是噪声。</p>
     </div>
+    <div class="phil-item fade-up" style="transition-delay:0.1s">
+      <div class="phil-num" data-i18n="ph-n2">02 — AI</div>
+      <h4 data-i18n="ph-h2">放大认知差距</h4>
+      <p data-i18n="ph-p2">AI 不替代思考——它放大认知质量的差距。理解物理的工程师能从神经网络中提取的价值，是不懂物理的人的十倍。</p>
+    </div>
+    <div class="phil-item fade-up" style="transition-delay:0.2s">
+      <div class="phil-num" data-i18n="ph-n3">03 — 极简</div>
+      <h4 data-i18n="ph-h3">减法即精确</h4>
+      <p data-i18n="ph-p3">无杂物的工作台、无噪声的文档、无冗余的代码——都反映同一种纪律：去掉所有不携带信号的东西。</p>
+    </div>
+  </div>
+</div>
 
-    <div class="lifestyle-grid">
-      <div class="life-card fade-up">
-        <span class="life-emoji">☕</span>
-        <div class="life-title" data-i18n="life-t1">黑咖啡</div>
-        <div class="life-sub" data-i18n="life-s1">无糖无奶。纯粹的信号，不加噪声。</div>
-      </div>
-      <div class="life-card fade-up">
-        <span class="life-emoji">🥃</span>
-        <div class="life-title" data-i18n="life-t2">单一麦芽威士忌</div>
-        <div class="life-sub" data-i18n="life-s2">百富、麦卡伦。白葡萄酒选长相思。</div>
-      </div>
-      <div class="life-card fade-up">
-        <span class="life-emoji">🐱</span>
-        <div class="life-title" data-i18n="life-t3">拾一</div>
-        <div class="life-sub" data-i18n="life-s3">金渐层英短，雄性。生骨肉喂养，性格稳定。</div>
-      </div>
-      <div class="life-card fade-up">
-        <span class="life-emoji">⏱</span>
-        <div class="life-title" data-i18n="life-t4">16 + 8 间歇性断食</div>
-        <div class="life-sub" data-i18n="life-s4">碳水后置算法，血糖控制优先于减少摄入。</div>
-      </div>
+<!-- ==================== RESEARCH ==================== -->
+<section id="research">
+  <div class="page-section">
+    <div class="page-header fade-up">
+      <div class="page-eyebrow" data-i18n="re-eye">Research</div>
+      <h2 class="page-title" data-i18n="re-title">在光学、物理与<em>人工智能</em>的交叉处</h2>
+      <p class="page-desc" data-i18n="re-desc">从浙江大学光学硕士出发，深入非线性光学与激光系统设计，探索 PINN 在光子学中的应用前沿。</p>
     </div>
-
-    <!-- Goals -->
-    <div style="margin-top: 80px;" class="fade-up">
-      <div class="section-label" data-i18n="goals-label">阶段目标</div>
-      <h2 class="section-h2" data-i18n="goals-h2">正在<em>推进中</em></h2>
-    </div>
-
-    <div class="goals-list">
-      <div class="goal-item fade-up">
-        <div class="goal-num" data-i18n="g1-num">一</div>
-        <div class="goal-text">
-          <h4 data-i18n="g1-h4">PINN 光束仿真引擎</h4>
-          <p data-i18n="g1-p">完成高斯光束与非线性晶体交互的 PINN 模型，替代传统 BPM 数值方法</p>
-        </div>
-        <div class="goal-status status-active" data-i18n="g1-st">进行中</div>
-      </div>
-      <div class="goal-item fade-up">
-        <div class="goal-num" data-i18n="g2-num">二</div>
-        <div class="goal-text">
-          <h4 data-i18n="g2-h4">IELTS 7.5 目标</h4>
-          <p data-i18n="g2-p">以「用英文思考」为标准，而非翻译。正在系统性提升学术写作与口语表达</p>
-        </div>
-        <div class="goal-status status-active" data-i18n="g2-st">进行中</div>
-      </div>
-      <div class="goal-item fade-up">
-        <div class="goal-num" data-i18n="g3-num">三</div>
-        <div class="goal-text">
-          <h4 data-i18n="g3-h4">回渝计划</h4>
-          <p data-i18n="g3-p">利用光学背景进入重庆高新技术市场，目标购置大平层，长期定居</p>
-        </div>
-        <div class="goal-status status-planned" data-i18n="g3-st">规划中</div>
-      </div>
-      <div class="goal-item fade-up">
-        <div class="goal-num" data-i18n="g4-num">四</div>
-        <div class="goal-text">
-          <h4>Tesla Model 3</h4>
-          <p data-i18n="g4-p">财务阈值达标后的下一个硬件升级</p>
-        </div>
-        <div class="goal-status status-pending" data-i18n="g4-st">等待触发</div>
-      </div>
-    </div>
+    <div class="page-placeholder" data-i18n="re-ph">研究内容将在此展示 — 论文 · 项目 · 技术笔记</div>
   </div>
 </section>
 
 <hr class="ruled">
 
+<!-- ==================== INTEREST ==================== -->
+<section id="interest">
+  <div class="page-section">
+    <div class="page-header fade-up">
+      <div class="page-eyebrow" data-i18n="in-eye">Interest</div>
+      <h2 class="page-title" data-i18n="in-title">工程之外的<em>信号</em></h2>
+      <p class="page-desc" data-i18n="in-desc">黑咖啡、单一麦芽威士忌、间歇性断食、极简生活——同一套原则的不同表达。</p>
+    </div>
+    <div class="page-placeholder" data-i18n="in-ph">兴趣与生活方式将在此展示</div>
+  </div>
+</section>
+
+<hr class="ruled">
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about">
+  <div class="page-section">
+    <div class="page-header fade-up">
+      <div class="page-eyebrow" data-i18n="ab-eye">About</div>
+      <h2 class="page-title" data-i18n="ab-title">陈泓鑫</h2>
+      <p class="page-desc" data-i18n="ab-desc">26 岁，重庆人，现居上海。浙江大学光学硕士，激光与光学工程师。</p>
+    </div>
+    <div class="page-placeholder" data-i18n="ab-ph">个人经历与更多信息将在此展示</div>
+  </div>
+</section>
+
 <!-- ==================== CONTACT ==================== -->
 <div class="contact-wrap" id="contact">
   <div class="contact-inner">
-    <div class="contact-left fade-up">
-      <h2 data-i18n="contact-h2">一起探索<br><em>光与智能的边界</em></h2>
-      <p data-i18n="contact-p">
-        欢迎关于 UV 激光系统设计、非线性光学仿真、
-        PINN 在光子学中的应用，以及 AI 工具集成的交流与合作。
-      </p>
-      <a href="mailto:hi@hongxin.dev" class="btn-primary" data-i18n="contact-btn">发送邮件</a>
+    <div class="fade-up">
+      <h2 data-i18n="ct-h2">一起探索<br><em>光与智能的边界</em></h2>
+      <p class="desc" data-i18n="ct-p">欢迎关于紫外激光系统、非线性光学仿真、PINN 应用以及 AI 工具集成的交流与合作。</p>
+      <a href="mailto:hi@hongxin.dev" class="btn-primary" data-i18n="ct-btn">发送邮件</a>
     </div>
-
-    <div class="contact-right fade-up">
+    <div class="fade-up" style="transition-delay:0.1s">
       <div class="info-row">
-        <span class="info-label" data-i18n="info-l1">当前位置</span>
-        <span class="info-val" data-i18n="info-v1">上海，中国</span>
+        <span class="info-label" data-i18n="i-l1">位置</span>
+        <span class="info-val" data-i18n="i-v1">上海，中国</span>
       </div>
       <div class="info-row">
-        <span class="info-label" data-i18n="info-l2">教育背景</span>
-        <span class="info-val" data-i18n="info-v2">浙江大学 · 光学硕士</span>
+        <span class="info-label" data-i18n="i-l2">教育</span>
+        <span class="info-val" data-i18n="i-v2">浙江大学 · 光学硕士</span>
       </div>
       <div class="info-row">
-        <span class="info-label" data-i18n="info-l3">研究方向</span>
-        <span class="info-val" data-i18n="info-v3">激光 · 非线性光学 · ML</span>
+        <span class="info-label" data-i18n="i-l3">方向</span>
+        <span class="info-val" data-i18n="i-v3">激光 · 非线性光学 · ML</span>
       </div>
       <div class="info-row">
-        <span class="info-label" data-i18n="info-l4">波长范围</span>
+        <span class="info-label" data-i18n="i-l4">波长</span>
         <span class="info-val">193 — 1064 nm</span>
       </div>
       <div class="info-row">
-        <span class="info-label" data-i18n="info-l5">状态</span>
-        <span class="info-val" style="color: var(--green);" data-i18n="info-v5">● 开放交流</span>
+        <span class="info-label" data-i18n="i-l5">状态</span>
+        <span class="info-val" style="color: var(--green);" data-i18n="i-v5">● 开放交流</span>
       </div>
     </div>
   </div>
@@ -1273,173 +793,91 @@ footer {
 
 <!-- ==================== FOOTER ==================== -->
 <footer>
-  <div class="footer-left">泓<span>鑫</span></div>
-  <div class="footer-center" data-i18n="footer-center">激光与光学工程师 · 上海</div>
+  <div class="footer-left">Hongxin Chen</div>
+  <div class="footer-center" data-i18n="ft-center">激光与光学工程师 · 上海</div>
   <div class="footer-right">© 2026</div>
 </footer>
 
-<style>
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-</style>
-
 <script>
-  // Intersection observer for fade-up animations
+  // Intersection observer
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
   document.querySelectorAll('.fade-up').forEach(el => {
-    // Skip elements already visible (hero)
     if (!el.classList.contains('visible')) io.observe(el);
   });
 
-  // Stagger children within containers
-  document.querySelectorAll('.cards-grid, .phil-grid, .lifestyle-grid, .goals-list, .card-tag-row').forEach(container => {
-    container.querySelectorAll('.fade-up').forEach((child, i) => {
-      child.style.transitionDelay = (i * 0.09) + 's';
-    });
-  });
-
-  // Smooth active nav highlight
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const links = document.querySelectorAll('.nav-links a');
+  // Active nav
+  const secs = document.querySelectorAll('section[id], div[id]');
+  const navA = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let cur = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) cur = s.id;
-    });
-    links.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--dark)' : '';
-    });
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navA.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--dark)' : ''; });
   });
 
   // ============================================
-  // i18n — Language switching
+  // i18n
   // ============================================
-  const i18nZh = {};
-  const i18nEn = {
-    'nav-work': 'Research',
-    'nav-projects': 'Projects',
-    'nav-about': 'About',
-    'nav-contact': 'Contact',
-    'nav-cta': 'Get in Touch',
+  const zhMap = {};
+  const enMap = {
+    'nav-res': 'Research', 'nav-int': 'Interest', 'nav-abt': 'About', 'nav-ct': 'Contact',
 
-    'hero-eyebrow': 'Laser & Optical Engineer · Shanghai',
-    'hero-h1': 'Designing Light<br>with <em>Physics</em>',
-    'hero-body': 'Focused on UV laser system design (355 nm · 266 nm · 193 nm) and nonlinear optics research. Currently building Physics-Informed Neural Networks (PINN) to replace traditional numerical methods with continuously differentiable simulation of Gaussian beam–crystal interaction.',
-    'hero-btn1': 'View Current Research',
-    'hero-btn2': 'Learn More',
+    'home-h1': '<span class="ul">Physics</span>-driven light design, <span class="ul">minimalism</span>-defined engineering <em>aesthetics</em>',
+    'home-p': 'Hongxin Chen, laser & optical engineer based in Shanghai. Focused on UV laser systems and nonlinear optics, currently redefining beam simulation with physics-informed neural networks. Believes understanding first principles always takes precedence over mastering tools.',
 
-    'card-label1': 'Research Overview',
-    'card-stat-unit': ' ',
-    'card-stat-l1': 'Key Bands<br>355 · 266 · 193 nm',
-    'card-stat-l2': 'PINN Solving<br>Nonlinear Schrödinger Eq.',
-    'card-label2': 'Tech Stack',
-    'tag-nlo': 'Nonlinear Optics',
-    'tag-duv': 'DUV Laser',
-    'tag-pm': 'Phase Matching',
-    'tag-bp': 'Beam Propagation',
+    'feat-eye': 'CURRENT FOCUS',
+    'feat-h2': 'PINN Beam <em>Simulation Engine</em>',
+    'feat-p': 'Embedding physics equations directly into neural network training objectives — making the network not just fit data, but "understand" how light propagates. Goal: replace traditional numerical methods with 100× speedup for UV laser cavity optimization.',
+    'feat-t1': 'Nonlinear Optics', 'feat-t2': 'Autodiff',
 
-    'work-label': 'Research',
-    'work-h2': 'Working at the Intersection of Optics, Physics & <em>AI</em>',
-    'work-intro': 'Starting from an M.S. in Optics at Zhejiang University, under the guidance of my advisor (from Friedrich Schiller University Jena), diving deep into nonlinear physics and laser system design while continuously integrating AI tools into engineering practice.',
-    'wc1-label': 'Core',
-    'wc1-h3': 'Nonlinear Optics',
-    'wc1-p': 'Second harmonic generation (SHG), third harmonic generation (THG), crystal phase matching, cavity design, and thermal lensing analysis.',
-    'wc2-label': 'Frontier',
-    'wc2-h3': 'Physics-Informed Neural Networks',
-    'wc2-p': 'Encoding Maxwell\'s equations and the NLS equation into the loss function to build a continuous approximator replacing FDTD / split-step Fourier methods.',
-    'wc3-label': 'Engineering',
-    'wc3-h3': 'AI-Enhanced Workflow',
-    'wc3-p': 'Integrating VS Code, Cursor, and LLMs into daily engineering workflows. Deployed a Streamlit nonlinear crystal simulation platform for internal company use.',
+    'ph-n1': '01 — Physics', 'ph-h1': 'Find the Mathematical Root',
+    'ph-p1': 'Every laser system, every nonlinear interaction has a clean mathematical root. Find it first, then simulate, then engineer. Optimization without understanding is just noise.',
+    'ph-n2': '02 — AI', 'ph-h2': 'Amplify the Cognitive Gap',
+    'ph-p2': 'AI doesn\'t replace thinking — it amplifies the gap in cognitive quality. An engineer who understands physics extracts 10× value from neural networks.',
+    'ph-n3': '03 — Minimalism', 'ph-h3': 'Subtraction Is Precision',
+    'ph-p3': 'A clutter-free workbench, noise-free documentation, redundancy-free code — all reflect the same discipline: remove everything that doesn\'t carry signal.',
 
-    'proj-label': 'Current Project',
-    'proj-h2': 'PINN Beam Simulation Engine',
-    'feat-badge': 'In Progress',
-    'feat-h3': 'Neural Network Solver for<br>Gaussian Beam Nonlinear Interaction',
-    'feat-body': 'Traditional numerical methods (BPM, FDTD) are prohibitively expensive for parameter sweeps. This project embeds physics equations directly into the training objective — making the network not just fit data, but "understand" light propagation. Ultimate goal: a continuous simulation tool offering 100× speedup for UV laser cavity optimization.',
-    'ft-t1': 'Physics-Constrained Loss',
-    'ft-t2': 'Gaussian Beam',
-    'ft-t3': 'NLS Equation',
-    'ft-t4': 'Phase Matching Opt.',
-    'ft-t5': 'Autodiff',
+    're-eye': 'Research',
+    're-title': 'At the Intersection of Optics, Physics & <em>AI</em>',
+    're-desc': 'Starting from an M.S. in Optics at Zhejiang University, exploring nonlinear optics, laser system design, and PINN applications in photonics.',
+    're-ph': 'Research content coming soon — papers · projects · technical notes',
 
-    'eq-c1': '# PINN Training Core Logic',
-    'eq-c2': '# Nonlinear Schrödinger Eq. Residual',
-    'eq-c3': '↓ Converging',
-    'eq-c4': '↓ Stable',
-    'eq-c5': '✓ Fitted',
+    'in-eye': 'Interest',
+    'in-title': 'Signals Beyond <em>Engineering</em>',
+    'in-desc': 'Black coffee, single malt whisky, intermittent fasting, minimalist living — different expressions of the same principle.',
+    'in-ph': 'Interests & lifestyle coming soon',
 
-    'phil-quote': '"Understanding <strong>first principles</strong> always takes precedence over mastering tools. Physics provides constraints, mathematics provides language, code is merely execution."',
-    'phil-n1': '01 — Physics',
-    'phil-h1': 'Find the Mathematical Root First',
-    'phil-p1': 'Every laser system, every nonlinear interaction has a clean mathematical root. Find it first, then simulate, then engineer. Optimization without understanding is just noise.',
-    'phil-n2': '02 — AI',
-    'phil-h2': 'Amplify the Cognitive Gap',
-    'phil-p2': 'AI doesn\'t replace thinking — it amplifies the gap in cognitive quality. An engineer who understands physics can extract 10× the value from neural networks compared to one who doesn\'t.',
-    'phil-n3': '03 — Minimalism',
-    'phil-h3': 'Subtraction Is Precision',
-    'phil-p3': 'A clutter-free workbench, noise-free documentation, redundancy-free code — all reflect the same discipline: remove everything that doesn\'t carry signal. LaTeX, black coffee, all the same.',
+    'ab-eye': 'About', 'ab-title': 'Hongxin Chen',
+    'ab-desc': '26, from Chongqing, based in Shanghai. M.S. Optics, Zhejiang University. Laser & optical engineer.',
+    'ab-ph': 'Bio & details coming soon',
 
-    'about-label': 'About Me',
-    'about-h2': 'The Engineer\'s <em>Operating System</em>',
-    'about-intro': '26, from Chongqing, based in Shanghai. Life beyond optics and engineering follows the same minimalist principle — remove the excess, keep what truly matters.',
-    'life-t1': 'Black Coffee',
-    'life-s1': 'No sugar, no milk. Pure signal, zero noise.',
-    'life-t2': 'Single Malt Whisky',
-    'life-s2': 'Balvenie, Macallan. White wine: Sauvignon Blanc.',
-    'life-t3': 'Shiyi',
-    'life-s3': 'Golden British Shorthair, male. Raw-fed, calm temperament.',
-    'life-t4': '16:8 Intermittent Fasting',
-    'life-s4': 'Carb-backloading algorithm. Blood sugar control over calorie reduction.',
+    'ct-h2': 'Let\'s Explore<br><em>the Frontiers of Light & Intelligence</em>',
+    'ct-p': 'Open to discussions on UV laser systems, nonlinear optical simulation, PINN in photonics, and AI tool integration.',
+    'ct-btn': 'Send Email',
 
-    'goals-label': 'Milestones',
-    'goals-h2': 'Currently <em>In Progress</em>',
-    'g1-num': 'I', 'g1-h4': 'PINN Beam Simulation Engine',
-    'g1-p': 'Complete the PINN model for Gaussian beam–nonlinear crystal interaction, replacing traditional BPM numerical methods',
-    'g1-st': 'Active',
-    'g2-num': 'II', 'g2-h4': 'IELTS 7.5 Target',
-    'g2-p': 'Standard: thinking in English, not translating. Systematically improving academic writing and spoken expression',
-    'g2-st': 'Active',
-    'g3-num': 'III', 'g3-h4': 'Return to Chongqing',
-    'g3-p': 'Leverage optics background to enter Chongqing\'s high-tech market. Goal: purchase a large apartment, settle long-term',
-    'g3-st': 'Planned',
-    'g4-num': 'IV',
-    'g4-p': 'Next hardware upgrade after financial threshold is met',
-    'g4-st': 'Pending',
+    'i-l1': 'Location', 'i-v1': 'Shanghai, China',
+    'i-l2': 'Education', 'i-v2': 'Zhejiang University · M.S. Optics',
+    'i-l3': 'Focus', 'i-v3': 'Laser · Nonlinear Optics · ML',
+    'i-l4': 'Wavelength', 'i-l5': 'Status', 'i-v5': '● Open to Collaborate',
 
-    'contact-h2': 'Let\'s Explore<br><em>the Frontiers of Light & Intelligence</em>',
-    'contact-p': 'Open to discussions on UV laser system design, nonlinear optical simulation, PINN applications in photonics, and AI tool integration.',
-    'contact-btn': 'Send Email',
-
-    'info-l1': 'Location', 'info-v1': 'Shanghai, China',
-    'info-l2': 'Education', 'info-v2': 'Zhejiang University · M.S. Optics',
-    'info-l3': 'Research', 'info-v3': 'Laser · Nonlinear Optics · ML',
-    'info-l4': 'Wavelength',
-    'info-l5': 'Status', 'info-v5': '● Open to Collaborate',
-
-    'footer-center': 'Laser & Optical Engineer · Shanghai'
+    'ft-center': 'Laser & Optical Engineer · Shanghai'
   };
 
-  // Cache original Chinese innerHTML
-  let currentLang = 'zh';
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    i18nZh[el.getAttribute('data-i18n')] = el.innerHTML;
-  });
+  let curLang = 'zh';
+  document.querySelectorAll('[data-i18n]').forEach(el => { zhMap[el.getAttribute('data-i18n')] = el.innerHTML; });
 
   function switchLang(lang) {
-    if (lang === currentLang) return;
-    currentLang = lang;
-    const dict = lang === 'en' ? i18nEn : i18nZh;
+    if (lang === curLang) return;
+    curLang = lang;
+    const d = lang === 'en' ? enMap : zhMap;
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
+      const k = el.getAttribute('data-i18n');
+      if (d[k] !== undefined) el.innerHTML = d[k];
     });
     document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
   }
 </script>
