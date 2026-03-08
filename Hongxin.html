@@ -405,63 +405,103 @@ nav {
 }
 
 /* ============================================
-   PAGE SECTIONS — skeleton for subpages
+   NEWS SECTION — timeline feed
    ============================================ */
-.page-section {
+.news-wrap {
   max-width: 1200px;
   margin: 0 auto;
   padding: 100px 48px;
 }
 
-.page-header { margin-bottom: 60px; }
+.news-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 56px;
+}
 
-.page-eyebrow {
+.news-header-left {}
+
+.news-eyebrow {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--orange);
   margin-bottom: 16px;
 }
 
-.page-title {
+.news-title {
   font-family: var(--font-serif);
-  font-size: clamp(36px, 4.5vw, 56px);
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--dark);
-  margin-bottom: 20px;
 }
 
-.page-title em {
+.news-title em {
   font-style: italic;
   color: var(--text-muted);
 }
 
-.page-desc {
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--text-body);
-  max-width: 600px;
+.news-list {
+  display: flex;
+  flex-direction: column;
 }
 
-.page-placeholder {
-  border: 1px dashed var(--border-dark);
-  border-radius: 16px;
-  padding: 60px 48px;
-  text-align: center;
-  color: var(--text-faint);
-  font-family: var(--font-sans);
-  font-size: 14px;
-}
-
-.ruled {
-  border: none;
+.news-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  padding: 36px 0;
   border-top: 1px solid var(--border);
-  margin: 0;
+  align-items: start;
+  transition: background 0.2s;
+}
+
+.news-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.news-date {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-faint);
+  padding-top: 4px;
+  white-space: nowrap;
+}
+
+.news-body {}
+
+.news-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.news-body h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.news-body p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 560px;
 }
 
 /* ============================================
@@ -607,7 +647,8 @@ footer {
   .featured-wrap { padding: 0 24px 60px; }
   .featured-card { grid-template-columns: 1fr; padding: 32px; gap: 32px; }
   .phil-inner { grid-template-columns: 1fr; gap: 36px; padding: 60px 24px; }
-  .page-section { padding: 72px 24px; }
+  .news-wrap { padding: 72px 24px; }
+  .news-item { grid-template-columns: 1fr; gap: 12px; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
   footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
 }
@@ -622,9 +663,10 @@ footer {
   <a href="#" class="nav-logo">Hongxin Chen</a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#research" data-i18n="nav-res">Research</a></li>
-      <li><a href="#interest" data-i18n="nav-int">Interest</a></li>
-      <li><a href="#about" data-i18n="nav-abt">About</a></li>
+      <li><a href="#news" data-i18n="nav-news">News</a></li>
+      <li><a href="research.html" data-i18n="nav-res">Research</a></li>
+      <li><a href="interest.html" data-i18n="nav-int">Interest</a></li>
+      <li><a href="about.html" data-i18n="nav-abt">About</a></li>
       <li><a href="#contact" data-i18n="nav-ct">Contact</a></li>
     </ul>
     <div class="lang-toggle">
@@ -718,43 +760,41 @@ footer {
   </div>
 </div>
 
-<!-- ==================== RESEARCH ==================== -->
-<section id="research">
-  <div class="page-section">
-    <div class="page-header fade-up">
-      <div class="page-eyebrow" data-i18n="re-eye">Research</div>
-      <h2 class="page-title" data-i18n="re-title">在光学、物理与<em>人工智能</em>的交叉处</h2>
-      <p class="page-desc" data-i18n="re-desc">从浙江大学光学硕士出发，深入非线性光学与激光系统设计，探索 PINN 在光子学中的应用前沿。</p>
+<!-- ==================== NEWS ==================== -->
+<section id="news">
+  <div class="news-wrap">
+    <div class="news-header fade-up">
+      <div class="news-header-left">
+        <div class="news-eyebrow" data-i18n="nw-eye">News & Ideas</div>
+        <h2 class="news-title" data-i18n="nw-title">最新<em>动态</em></h2>
+      </div>
     </div>
-    <div class="page-placeholder" data-i18n="re-ph">研究内容将在此展示 — 论文 · 项目 · 技术笔记</div>
-  </div>
-</section>
-
-<hr class="ruled">
-
-<!-- ==================== INTEREST ==================== -->
-<section id="interest">
-  <div class="page-section">
-    <div class="page-header fade-up">
-      <div class="page-eyebrow" data-i18n="in-eye">Interest</div>
-      <h2 class="page-title" data-i18n="in-title">工程之外的<em>信号</em></h2>
-      <p class="page-desc" data-i18n="in-desc">黑咖啡、单一麦芽威士忌、间歇性断食、极简生活——同一套原则的不同表达。</p>
+    <div class="news-list">
+      <div class="news-item fade-up">
+        <div class="news-date">2026.03.08</div>
+        <div class="news-body">
+          <div class="news-tag" data-i18n="nw-tag1">里程碑</div>
+          <h3 data-i18n="nw-h1">个人主页上线</h3>
+          <p data-i18n="nw-p1">用 Anthropic 设计语言构建的极简个人站正式发布。Low Entropy, High Signal, Deep Thinking——不只是座右铭，也是这个站点的设计原则。</p>
+        </div>
+      </div>
+      <div class="news-item fade-up">
+        <div class="news-date">2026.03</div>
+        <div class="news-body">
+          <div class="news-tag" data-i18n="nw-tag2">研究</div>
+          <h3 data-i18n="nw-h2">PINN 光束仿真引擎进展</h3>
+          <p data-i18n="nw-p2">物理信息神经网络在非线性薛定谔方程上的收敛性实验取得阶段性结果，PDE loss 降至 0.003 以下。正在准备技术文档。</p>
+        </div>
+      </div>
+      <div class="news-item fade-up">
+        <div class="news-date">2026.02</div>
+        <div class="news-body">
+          <div class="news-tag" data-i18n="nw-tag3">想法</div>
+          <h3 data-i18n="nw-h3">为什么物理学家应该学深度学习</h3>
+          <p data-i18n="nw-p3">不是为了转行，而是因为自动微分本质上是另一种求解偏微分方程的数学工具。理解它，就像理解一种新的数学语言。</p>
+        </div>
+      </div>
     </div>
-    <div class="page-placeholder" data-i18n="in-ph">兴趣与生活方式将在此展示</div>
-  </div>
-</section>
-
-<hr class="ruled">
-
-<!-- ==================== ABOUT ==================== -->
-<section id="about">
-  <div class="page-section">
-    <div class="page-header fade-up">
-      <div class="page-eyebrow" data-i18n="ab-eye">About</div>
-      <h2 class="page-title" data-i18n="ab-title">陈泓鑫</h2>
-      <p class="page-desc" data-i18n="ab-desc">26 岁，重庆人，现居上海。浙江大学光学硕士，激光与光学工程师。</p>
-    </div>
-    <div class="page-placeholder" data-i18n="ab-ph">个人经历与更多信息将在此展示</div>
   </div>
 </section>
 
@@ -821,7 +861,7 @@ footer {
   // ============================================
   const zhMap = {};
   const enMap = {
-    'nav-res': 'Research', 'nav-int': 'Interest', 'nav-abt': 'About', 'nav-ct': 'Contact',
+    'nav-news': 'News', 'nav-res': 'Research', 'nav-int': 'Interest', 'nav-abt': 'About', 'nav-ct': 'Contact',
 
     'home-h1': '<span class="ul">Physics</span>-driven light design, <span class="ul">minimalism</span>-defined engineering <em>aesthetics</em>',
     'home-p': 'Hongxin Chen, laser & optical engineer based in Shanghai. Focused on UV laser systems and nonlinear optics, currently redefining beam simulation with physics-informed neural networks. Believes understanding first principles always takes precedence over mastering tools.',
@@ -838,19 +878,14 @@ footer {
     'ph-n3': '03 — Minimalism', 'ph-h3': 'Subtraction Is Precision',
     'ph-p3': 'A clutter-free workbench, noise-free documentation, redundancy-free code — all reflect the same discipline: remove everything that doesn\'t carry signal.',
 
-    're-eye': 'Research',
-    're-title': 'At the Intersection of Optics, Physics & <em>AI</em>',
-    're-desc': 'Starting from an M.S. in Optics at Zhejiang University, exploring nonlinear optics, laser system design, and PINN applications in photonics.',
-    're-ph': 'Research content coming soon — papers · projects · technical notes',
-
-    'in-eye': 'Interest',
-    'in-title': 'Signals Beyond <em>Engineering</em>',
-    'in-desc': 'Black coffee, single malt whisky, intermittent fasting, minimalist living — different expressions of the same principle.',
-    'in-ph': 'Interests & lifestyle coming soon',
-
-    'ab-eye': 'About', 'ab-title': 'Hongxin Chen',
-    'ab-desc': '26, from Chongqing, based in Shanghai. M.S. Optics, Zhejiang University. Laser & optical engineer.',
-    'ab-ph': 'Bio & details coming soon',
+    'nw-eye': 'News & Ideas',
+    'nw-title': 'Latest <em>Updates</em>',
+    'nw-tag1': 'Milestone', 'nw-h1': 'Personal Site Launched',
+    'nw-p1': 'A minimalist personal site built with Anthropic\'s design language is officially live. Low Entropy, High Signal, Deep Thinking — not just a motto, but the design principle of this site.',
+    'nw-tag2': 'Research', 'nw-h2': 'PINN Beam Simulation Progress',
+    'nw-p2': 'Physics-informed neural network experiments on the nonlinear Schrödinger equation achieved phase results — PDE loss dropped below 0.003. Technical documentation in progress.',
+    'nw-tag3': 'Idea', 'nw-h3': 'Why Physicists Should Learn Deep Learning',
+    'nw-p3': 'Not to switch careers, but because automatic differentiation is essentially another mathematical tool for solving PDEs. Understanding it is like learning a new mathematical language.',
 
     'ct-h2': 'Let\'s Explore<br><em>the Frontiers of Light & Intelligence</em>',
     'ct-p': 'Open to discussions on UV laser systems, nonlinear optical simulation, PINN in photonics, and AI tool integration.',
