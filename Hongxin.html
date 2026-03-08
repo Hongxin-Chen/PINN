@@ -151,6 +151,88 @@ nav {
 }
 
 /* ============================================
+   MOTTO BANNER — Anthropic statement strip
+   ============================================ */
+.motto-wrap {
+  background: var(--dark);
+  padding: 72px 48px;
+  overflow: hidden;
+  position: relative;
+}
+
+.motto-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--orange) 30%, var(--blue) 70%, transparent 100%);
+}
+
+.motto-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--blue) 30%, var(--orange) 70%, transparent 100%);
+}
+
+.motto-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.motto-text {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: rgba(250, 249, 245, 0.88);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.motto-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.motto-word em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.motto-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: 0.6;
+  flex-shrink: 0;
+  margin: 0 28px;
+}
+
+.motto-sub {
+  display: block;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(176, 174, 165, 0.5);
+  margin-top: 20px;
+}
+
+/* ============================================
    HERO — Anthropic large headline style
    ============================================ */
 .hero {
@@ -877,6 +959,10 @@ footer {
   .goal-item { grid-template-columns: 40px 1fr; }
   .goal-status { display: none; }
   .philosophy-inner { padding: 72px 24px; }
+  .motto-wrap { padding: 56px 24px; }
+  .motto-text { font-size: clamp(24px, 5vw, 36px); }
+  .motto-word { gap: 12px; }
+  .motto-dot { width: 5px; height: 5px; }
 }
 </style>
 </head>
@@ -945,6 +1031,20 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ==================== MOTTO ==================== -->
+<div class="motto-wrap">
+  <div class="motto-inner">
+    <div class="motto-text fade-up">
+      <span class="motto-word">Low <em>Entropy</em></span>
+      <span class="motto-dot"></span>
+      <span class="motto-word">High <em>Signal</em></span>
+      <span class="motto-dot"></span>
+      <span class="motto-word">Deep <em>Thinking</em></span>
+    </div>
+  </div>
+  <div class="motto-sub fade-up" data-i18n="motto-sub">低熵 · 高信号 · 深度思考 — 个人座右铭</div>
+</div>
 
 <hr class="ruled">
 
@@ -1333,7 +1433,8 @@ footer {
     'info-l4': 'Wavelength',
     'info-l5': 'Status', 'info-v5': '● Open to Collaborate',
 
-    'footer-center': 'Laser & Optical Engineer · Shanghai'
+    'footer-center': 'Laser & Optical Engineer · Shanghai',
+    'motto-sub': 'Low Entropy · High Signal · Deep Thinking — Personal Motto'
   };
 
   // Cache original Chinese innerHTML
